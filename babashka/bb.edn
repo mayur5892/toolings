@@ -6,6 +6,7 @@
 
   :init (do
           (def pi 22/7)
+          (def kafka-client-locations "/Users/mayur.pandey/Downloads/kafka_2.12-3.3.1/bin")
           (defn calculate-area [r]
             (* pi r r)))
 
@@ -17,4 +18,8 @@
   list-container {:doc "list docker container"
                   :task
                   (apply shell "docker container ls" *command-line-args*)}
+
+   kafka-topics {:doc "kafka topics operations"
+                :task
+                (apply shell (str kafka-client-locations "/kafka-topics.sh --bootstrap-server localhost:29092 ") *command-line-args*)}
   }}
